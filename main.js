@@ -124,10 +124,10 @@ $(document).ready(function(){
           }
 
           var prova = {
-            'q1': 0,
-            'q2': 0,
-            'q3': 0,
-            'q4': 0
+            'Q1': 0,
+            'Q2': 0,
+            'Q3': 0,
+            'Q4': 0
           }
 
           //----------------------------------------------------------------//
@@ -139,30 +139,30 @@ $(document).ready(function(){
           }
 
           var array_q1 = Object.keys(q1);
-          //
-          // var q2 = {
-          //   'Apr': 0,
-          //   'May': 0,
-          //   'Jun': 0
-          // }
-          //
-          // var array_q2 = Object.keys(q2);
-          //
-          // var q3 = {
-          //   'Jul': 0,
-          //   'Aug': 0,
-          //   'Sep': 0
-          // }
-          //
-          // var array_q3 = Object.keys(q3);
-          //
-          // var q4 = {
-          //   'Oct': 0,
-          //   'Nov': 0,
-          //   'Dec': 0
-          // }
-          //
-          // var array_q4 = Object.keys(q4);
+
+          var q2 = {
+            'Apr': 0,
+            'May': 0,
+            'Jun': 0
+          }
+
+          var array_q2 = Object.keys(q2);
+
+          var q3 = {
+            'Jul': 0,
+            'Aug': 0,
+            'Sep': 0
+          }
+
+          var array_q3 = Object.keys(q3);
+
+          var q4 = {
+            'Oct': 0,
+            'Nov': 0,
+            'Dec': 0
+          }
+
+          var array_q4 = Object.keys(q4);
           //----------------------------------------------------------------//
 
         //ciclo i dati ricevuti
@@ -182,10 +182,6 @@ $(document).ready(function(){
           mese_vendita[moment_mese_corrente] += importo_vendita_corrente;
           //console.log(mese_vendita);
 
-
-
-
-
           //----------------------------------------------------------------//
           //ciclo chiavi oggetto (q1) e se sono uguali alle chiavi oggetto (risposta) aggiungo il rispettivo totale
           for (var j = 0; j < array_q1.length; j++) {
@@ -193,85 +189,112 @@ $(document).ready(function(){
               q1[moment_mese_corrente] += importo_vendita_corrente;
             }
           }
-          // for (var x = 0; x < array_q2.length; x++) {
-          //   if (array_q2[x] == moment_mese_corrente) {
-          //     q2[moment_mese_corrente] += importo_vendita_corrente;
-          //   }
-          // }
-          // for (var z = 0; z < array_q3.length; z++) {
-          //   if (array_q3[z] == moment_mese_corrente) {
-          //     q3[moment_mese_corrente] += importo_vendita_corrente;
-          //   }
-          // }
-          // for (var s = 0; s < array_q4.length; s++) {
-          //   if (array_q4[s] == moment_mese_corrente) {
-          //     q4[moment_mese_corrente] += importo_vendita_corrente;
-          //   }
-          // }
+          for (var x = 0; x < array_q2.length; x++) {
+            if (array_q2[x] == moment_mese_corrente) {
+              q2[moment_mese_corrente] += importo_vendita_corrente;
+            }
+          }
+          for (var z = 0; z < array_q3.length; z++) {
+            if (array_q3[z] == moment_mese_corrente) {
+              q3[moment_mese_corrente] += importo_vendita_corrente;
+            }
+          }
+          for (var s = 0; s < array_q4.length; s++) {
+            if (array_q4[s] == moment_mese_corrente) {
+              q4[moment_mese_corrente] += importo_vendita_corrente;
+            }
+          }
           //----------------------------------------------------------------//
 
         }
 
         //----------------------------------------------------------------//
         // console.log(mese_vendita);
-        //
-        console.log(q1);
+
+        //console.log(q1);
         // console.log(q2);
         // console.log(q3);
         // console.log(q4);
-        //
+
         var q1_val = Object.values(q1);
         console.log(q1_val);
-        // var q1_tot = [];
-        // var q1_add = 0;
-        // for (var i = 0; i < q1_val.length; i++) {
-        //   console.log(q1_val[i]);
-        //   q1_add += q1_val[i];
-        //   q1_tot.push(q1_add);
-        // }
-        // console.log(q1_tot);
-        // var q2_val = Object.values(q2);
-        // var q3_val = Object.values(q3);
-        // var q4_val = Object.values(q4);
+        var q1_add = 0;
+        for (var i = 0; i < q1_val.length; i++) {
+          console.log(q1_val[i]);
+          q1_add += q1_val[i];
+        }
+        console.log(q1_add);
+        prova.Q1 = q1_add;
+        console.log(prova);
+        var q2_val = Object.values(q2);
+        var q2_add = 0;
+        for (var i = 0; i < q2_val.length; i++) {
+          console.log(q2_val[i]);
+          q2_add += q2_val[i];
+        }
+        console.log(q2_add);
+        prova.Q2 = q2_add;
+        console.log(prova);
+        var q3_val = Object.values(q3);
+        var q3_add = 0;
+        for (var i = 0; i < q3_val.length; i++) {
+          console.log(q3_val[i]);
+          q3_add += q3_val[i];
+        }
+        console.log(q3_add);
+        prova.Q3 = q3_add;
+        console.log(prova);
+        var q4_val = Object.values(q4);
+        var q4_add = 0;
+        for (var i = 0; i < q4_val.length; i++) {
+          console.log(q4_val[i]);
+          q4_add += q4_val[i];
+        }
+        console.log(q4_add);
+        prova.Q4 = q4_add;
+        console.log(prova);
+
+        var label_quarter = Object.keys(prova);
+        var data_quarter = Object.values(prova);
         //----------------------------------------------------------------//
 
 
-        // var myChart = new Chart($('#myChart__2'), {
-        //   type: 'bar',
-        //   data: {
-        //       labels: ,
-        //       datasets: [{
-        //           label: '# of Votes',
-        //           data: ,
-        //           backgroundColor: [
-        //               'rgba(255, 99, 132, 0.2)',
-        //               'rgba(54, 162, 235, 0.2)',
-        //               'rgba(255, 206, 86, 0.2)',
-        //               'rgba(75, 192, 192, 0.2)',
-        //               'rgba(153, 102, 255, 0.2)',
-        //               'rgba(255, 159, 64, 0.2)'
-        //           ],
-        //           borderColor: [
-        //               'rgba(255, 99, 132, 1)',
-        //               'rgba(54, 162, 235, 1)',
-        //               'rgba(255, 206, 86, 1)',
-        //               'rgba(75, 192, 192, 1)',
-        //               'rgba(153, 102, 255, 1)',
-        //               'rgba(255, 159, 64, 1)'
-        //           ],
-        //           borderWidth: 1
-        //       }]
-        //   },
-        //   options: {
-        //       scales: {
-        //           yAxes: [{
-        //               ticks: {
-        //                   beginAtZero: true
-        //               }
-        //           }]
-        //       }
-        //   }
-        // });
+        var myChart = new Chart($('#myChart__2'), {
+          type: 'bar',
+          data: {
+              labels: label_quarter,
+              datasets: [{
+                  label: 'vendite per quarter',
+                  data: data_quarter,
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)'
+                  ],
+                  borderColor: [
+                      'rgba(255, 99, 132, 1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)'
+                  ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true
+                      }
+                  }]
+              }
+          }
+        });
 
         /////////////////////////////////////////////////////////////////////////
 
