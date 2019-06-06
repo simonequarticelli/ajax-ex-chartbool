@@ -108,62 +108,63 @@ $(document).ready(function(){
         console.log(risposta);
 
         //preparo il primo oggetto per il primo grafico
-          var mese_vendita = {
-            'Jan': 0,
-            'Feb': 0,
-            'Mar': 0,
-            'Apr': 0,
-            'May': 0,
-            'Jun': 0,
-            'Jul': 0,
-            'Aug': 0,
-            'Sep': 0,
-            'Oct': 0,
-            'Nov': 0,
-            'Dec': 0
-          }
+        var mese_vendita = {
+          'Jan': 0,
+          'Feb': 0,
+          'Mar': 0,
+          'Apr': 0,
+          'May': 0,
+          'Jun': 0,
+          'Jul': 0,
+          'Aug': 0,
+          'Sep': 0,
+          'Oct': 0,
+          'Nov': 0,
+          'Dec': 0
+        }
 
-          var prova = {
-            'Q1': 0,
-            'Q2': 0,
-            'Q3': 0,
-            'Q4': 0
-          }
+        var quarter = {
+          'Q1': 0,
+          'Q2': 0,
+          'Q3': 0,
+          'Q4': 0
+        }
 
-          //----------------------------------------------------------------//
+        //----------------------------------------------------------------//
 
-          var q1 = {
-            'Jan': 0,
-            'Feb': 0,
-            'Mar': 0
-          }
+        var q1 = {
+          'Jan': 0,
+          'Feb': 0,
+          'Mar': 0
+        }
 
-          var array_q1 = Object.keys(q1);
+        var array_q1 = Object.keys(q1);
 
-          var q2 = {
-            'Apr': 0,
-            'May': 0,
-            'Jun': 0
-          }
+        var q2 = {
+          'Apr': 0,
+          'May': 0,
+          'Jun': 0
+        }
 
-          var array_q2 = Object.keys(q2);
+        var array_q2 = Object.keys(q2);
 
-          var q3 = {
-            'Jul': 0,
-            'Aug': 0,
-            'Sep': 0
-          }
+        var q3 = {
+          'Jul': 0,
+          'Aug': 0,
+          'Sep': 0
+        }
 
-          var array_q3 = Object.keys(q3);
+        var array_q3 = Object.keys(q3);
 
-          var q4 = {
-            'Oct': 0,
-            'Nov': 0,
-            'Dec': 0
-          }
+        var q4 = {
+          'Oct': 0,
+          'Nov': 0,
+          'Dec': 0
+        }
 
-          var array_q4 = Object.keys(q4);
-          //----------------------------------------------------------------//
+        var array_q4 = Object.keys(q4);
+
+        //----------------------------------------------------------------//
 
         //ciclo i dati ricevuti
         for (var i = 0; i < risposta.length; i++) {
@@ -183,32 +184,25 @@ $(document).ready(function(){
           //console.log(mese_vendita);
 
           //----------------------------------------------------------------//
-          //ciclo chiavi oggetto (q1) e se sono uguali alle chiavi oggetto (risposta) aggiungo il rispettivo totale
-          for (var j = 0; j < array_q1.length; j++) {
-            if (array_q1[j] == moment_mese_corrente) {
+            //controllo se i mesi son inclusi nei vari array
+            if (array_q1.includes(moment_mese_corrente)) {
               q1[moment_mese_corrente] += importo_vendita_corrente;
             }
-          }
-          for (var x = 0; x < array_q2.length; x++) {
-            if (array_q2[x] == moment_mese_corrente) {
+            if (array_q2.includes(moment_mese_corrente)) {
               q2[moment_mese_corrente] += importo_vendita_corrente;
             }
-          }
-          for (var z = 0; z < array_q3.length; z++) {
-            if (array_q3[z] == moment_mese_corrente) {
+            if (array_q3.includes(moment_mese_corrente)) {
               q3[moment_mese_corrente] += importo_vendita_corrente;
             }
-          }
-          for (var s = 0; s < array_q4.length; s++) {
-            if (array_q4[s] == moment_mese_corrente) {
+            if (array_q4.includes(moment_mese_corrente)) {
               q4[moment_mese_corrente] += importo_vendita_corrente;
             }
-          }
           //----------------------------------------------------------------//
 
         }
 
         //----------------------------------------------------------------//
+
         // console.log(mese_vendita);
 
         //console.log(q1);
@@ -217,45 +211,51 @@ $(document).ready(function(){
         // console.log(q4);
 
         var q1_val = Object.values(q1);
-        console.log(q1_val);
+        // console.log(q1_val);
         var q1_add = 0;
         for (var i = 0; i < q1_val.length; i++) {
-          console.log(q1_val[i]);
+          // console.log(q1_val[i]);
           q1_add += q1_val[i];
         }
-        console.log(q1_add);
-        prova.Q1 = q1_add;
-        console.log(prova);
+        // console.log(q1_add);
+        quarter.Q1 = q1_add;
+        // console.log(quarter);
+
+
         var q2_val = Object.values(q2);
         var q2_add = 0;
         for (var i = 0; i < q2_val.length; i++) {
-          console.log(q2_val[i]);
+          // console.log(q2_val[i]);
           q2_add += q2_val[i];
         }
-        console.log(q2_add);
-        prova.Q2 = q2_add;
-        console.log(prova);
+        // console.log(q2_add);
+        quarter.Q2 = q2_add;
+        // console.log(quarter);
+
+
         var q3_val = Object.values(q3);
         var q3_add = 0;
         for (var i = 0; i < q3_val.length; i++) {
-          console.log(q3_val[i]);
+          // console.log(q3_val[i]);
           q3_add += q3_val[i];
         }
-        console.log(q3_add);
-        prova.Q3 = q3_add;
-        console.log(prova);
+        // console.log(q3_add);
+        quarter.Q3 = q3_add;
+        // console.log(quarter);
+
         var q4_val = Object.values(q4);
         var q4_add = 0;
         for (var i = 0; i < q4_val.length; i++) {
-          console.log(q4_val[i]);
+          // console.log(q4_val[i]);
           q4_add += q4_val[i];
         }
-        console.log(q4_add);
-        prova.Q4 = q4_add;
-        console.log(prova);
+        // console.log(q4_add);
+        quarter.Q4 = q4_add;
+        console.log(quarter);
 
-        var label_quarter = Object.keys(prova);
-        var data_quarter = Object.values(prova);
+        var label_quarter = Object.keys(quarter);
+        var data_quarter = Object.values(quarter);
+
         //----------------------------------------------------------------//
 
 
@@ -267,20 +267,16 @@ $(document).ready(function(){
                   label: 'vendite per quarter',
                   data: data_quarter,
                   backgroundColor: [
-                      'rgba(255, 99, 132, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(255, 206, 86, 0.2)',
-                      'rgba(75, 192, 192, 0.2)',
                       'rgba(153, 102, 255, 0.2)',
-                      'rgba(255, 159, 64, 0.2)'
+                      'rgba(255, 159, 64, 0.2)',
+                      'rgba(51,102,102,0.2)',
+                      'rgba(102,51,0,0.2)'
                   ],
                   borderColor: [
-                      'rgba(255, 99, 132, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(255, 206, 86, 1)',
-                      'rgba(75, 192, 192, 1)',
                       'rgba(153, 102, 255, 1)',
-                      'rgba(255, 159, 64, 1)'
+                      'rgba(255, 159, 64, 1)',
+                      'rgba(51,102,102,1)',
+                      'rgba(102,51,0,1)'
                   ],
                   borderWidth: 1
               }]
@@ -475,62 +471,68 @@ $(document).ready(function(){
   create_dashboard_kpi(url__personale);
 
   $('#send__data').click(function(){
-    //ripristino le select
-
 
     //recupero il mome del venditore selezionato
     var venditore_scelto_ajax_add = $('#venditori').val();
-    console.log(venditore_scelto_ajax_add);
+    //console.log(venditore_scelto_ajax_add);
 
     var mese_scelto = $('#mesi').val();
+    //console.log(mese_scelto);
+
     //uso moment per risalire al mese
     var mese_scelto_moment = moment(mese_scelto, 'MMM');
+
     //strutturo stringa riconoscibile
     var mese_ajax_add = mese_scelto_moment.format('DD-MM-' + '2017');
-    console.log(mese_ajax_add);
+    //console.log(mese_ajax_add);
 
     //recupero l'inserimento del valore
     var inserimento_importo_ajax_add = parseInt($('#add__value').val());
-    console.log(inserimento_importo_ajax_add);
-    //limito l'inserimento a un numero
-    if (isNaN(inserimento_importo_ajax_add)) {
-      alert('inserimento non valido');
-      //pulisco l'input
-      $('#add__value').val('');
-      ////////////////////////////
-      // $('#add__value').empty();
-    }
+    //console.log(inserimento_importo_ajax_add);
 
     //eseguo controllo prima di aggiungere il venditore
+    if (venditore_scelto_ajax_add.length > 0 && mese_scelto.length > 0 && !isNaN($('#add__value').val())) {
+      $.ajax({
+        url: url__personale,
+        type: 'POST',
+        contentType: 'application/Json', //<-- specifica il tipo di contenuto del data
+        data: JSON.stringify({ //<-- trasforma il contenuto dell'oggetto in stringhe
+          'salesman': venditore_scelto_ajax_add,
+          'date': mese_ajax_add,
+          'amount': inserimento_importo_ajax_add
+        }),
+        success: function(risposta){
+          console.log(risposta);
+          create_dashboard_kpi(url__personale);
 
-    $.ajax({
-      url: url__personale,
-      type: 'POST',
-      contentType: 'application/Json',
-      data: JSON.stringify({
-        'salesman': venditore_scelto_ajax_add,
-        'date': mese_ajax_add,
-        'amount': inserimento_importo_ajax_add
-      }),
-      success: function(risposta){
-        console.log(risposta);
-        create_dashboard_kpi(url__personale);
+        },
+        error: function(errori){
+          console.log(errori);
+        }
+      });
+      //aggiungo alert
+      Swal.fire({
+        type: 'success',
+        title: 'Venditore aggiunto correttamente',
+        showConfirmButton: false,
+        timer: 1500
+      })
 
-      },
-      error: function(errori){
-        console.log(errori);
-      }
-    })
+    }else{
+      //aggiungo alert
+      Swal.fire({
+        type: 'error',
+        title: 'Impossibile aggiungere il venditore!',
+        text: 'Assicurati di aver selezionato tutti i vari campi...',
+      })
+    }
 
-
+    //ripristino le select
+    $('#venditori').val('');
+    $('#mesi').val('');
+    //pulisco l'input
+    $('#add__value').val('');
 
   });
-
-
-
-
-
-
-
 
 });
